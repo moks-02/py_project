@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Clone</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map { height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Add Geoapify tile layer
+        L.tileLayer('https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=1158a28c33b44d94a08b86f4081177ad', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Define start and end points (latitude, longitude)
+        const startPoint = [51.5, -0.09];
+        const endPoint = [51.495, -0.083];
+
+        var requestOptions = {
+        method: 'GET',
+        };
+
+        fetch("https://api.geoapify.com/v1/routing?waypoints=50.96209827745463%2C4.414458883409225%7C50.429137079078345%2C5.00088081232559&mode=drive&apiKey=1158a28c33b44d94a08b86f4081177ad", requestOptions)
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+        // Define custom icons
+        var greenIcon = L.icon({
+            iconUrl: 'start.png',
+            iconSize: [50, 50], 
+            iconAnchor: [25, 50], 
+            popupAnchor: [0, -50]
+        });
+
+        var redIcon = L.icon({
+            iconUrl: 'end.png',
+            iconSize: [50, 50], 
+            iconAnchor: [25, 50], 
+            popupAnchor: [0, -50]
+        });
+
+        // Add markers with custom icons
+        L.marker(startPoint, {icon: greenIcon}).addTo(map).bindPopup("Start Point");
+        L.marker(endPoint, {icon: redIcon}).addTo(map).bindPopup("Destination");
+
+        // Fetch route from Geoapify Routing API
+        async function getRoute(start, end) {
+            const apiKey = '1158a28c33b44d94a08b86f4081177ad'; // Replace with your actual API key
+            const url = `https://api.geoapify.com/v1/routing?waypoints=${start[0]},${start[1]}|${end[0]},${end[1]}&mode=drive&apiKey=${apiKey}`;
+            
+            console.log("Fetching route from:", url); // Debugging
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                console.log("API Response:", data); // Debugging
+
+                if (data.features && data.features.length > 0) {
+                    const coordinates = data.features[0].geometry.coordinates;
+                    const routeCoords = coordinates.map(coord => [coord[1], coord[0]]); // Swap lat/lng
+
+                    // Draw route on map
+                    L.polyline(routeCoords, { color: 'blue', weight: 5 }).addTo(map);
+
+                    // Fit the map to the route
+                    map.fitBounds(routeCoords);
+                } else {
+                    console.error("No route found in API response.");
+                }
+            } catch (error) {
+                console.error("Error fetching route:", error);
+            }
+        }
+
+        // Get and display the route
+        getRoute(startPoint, endPoint);
+    </script>
+</body>
+</html>
