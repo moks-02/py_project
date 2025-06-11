@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccessToilet - About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>AccessToilet</span>
+                </div>
+                <button id="closeSidebar" class="btn-close d-lg-none"></button>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="sidebar-nav">
+                <a href="map.html" class="nav-item">
+                    <i class="bi bi-map"></i>
+                    <span>Map</span>
+                </a>
+                <a href="favorites.html" class="nav-item">
+                    <i class="bi bi-star"></i>
+                    <span>Favorites</span>
+                </a>
+                <a href="about.html" class="nav-item active">
+                    <i class="bi bi-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="help.html" class="nav-item">
+                    <i class="bi bi-question-circle"></i>
+                    <span>Help</span>
+                </a>
+                <a href="index.html" class="nav-item mt-auto">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button id="toggleSidebar" class="btn btn-icon d-lg-none">
+                    <i class="bi bi-list"></i>
+                </button>
+                
+                <div class="page-title">
+                    <h1>About</h1>
+                </div>
+                
+                <div class="top-actions">
+                    <a href="help.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-question-circle"></i> Help
+                    </a>
+                </div>
+            </div>
+            
+            <!-- About Content -->
+            <div class="page-content">
+                <div class="about-container">
+                    <div class="about-header">
+                        <div class="about-logo">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h2>AccessToilet</h2>
+                        <p class="version">Version 1.0.0</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Our Mission</h3>
+                        <p>AccessToilet is dedicated to helping people with disabilities find accessible public toilets with ease. Our mission is to make the world more accessible by providing accurate, up-to-date information about toilet facilities that meet the needs of people with various disabilities.</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>How It Works</h3>
+                        <div class="how-it-works">
+                            <div class="step">
+                                <div class="step-icon">
+                                    <i class="bi bi-geo"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Find Your Location</h4>
+                                    <p>Use your device's GPS or search for a specific location to find toilets near you.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-icon">
+                                    <i class="bi bi-filter"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Filter Results</h4>
+                                    <p>Filter toilets based on your specific accessibility needs, such as wheelchair access or changing tables.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-icon">
+                                    <i class="bi bi-info-circle"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>View Details</h4>
+                                    <p>Get detailed information about each toilet, including accessibility features, opening hours, and user ratings.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-icon">
+                                    <i class="bi bi-map"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Get Directions</h4>
+                                    <p>Get step-by-step directions to your chosen toilet facility.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Our Data</h3>
+                        <p>Our toilet data comes from multiple sources, including:</p>
+                        <ul>
+                            <li>Government databases of public facilities</li>
+                            <li>Partnerships with businesses and organizations</li>
+                            <li>User contributions and reports</li>
+                            <li>Regular audits by our accessibility team</li>
+                        </ul>
+                        <p>We strive to ensure all information is accurate and up-to-date, but conditions may change. If you find any inaccuracies, please use the "Report Issue" feature to let us know.</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Contact Us</h3>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="bi bi-envelope"></i>
+                                <span>support@accesstoilet.org</span>
+                            </div>
+                            <div class="contact-method">
+                                <i class="bi bi-telephone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-method">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>123 Accessibility Street, City, Country</span>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
